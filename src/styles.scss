@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme variables */
+body {
+  /* Default dark theme variables */
+  --primary-bg: #121212;
+  --secondary-bg: #1e1e1e;
+  --text-color: #ffffff;
+  --text-secondary: #b3b3b3;
+  --visualizer-bg: #1a1a1a;
+  --canvas-bg: #000000;
+  --waveform-color: #00aaff;
+  --button-bg: #007bff;
+  --button-hover-bg: #0056b3;
+  --button-text: #ffffff;
+  --theme-toggle-bg: #333333;
+  --theme-toggle-hover: #444444;
+  --theme-toggle-text: #ffffff;
+  
+  /* Apply dark theme by default */
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+}
+
+/* Light theme */
+body.light-theme {
+  --primary-bg: #f8f9fa;
+  --secondary-bg: #e9ecef;
+  --text-color: #212529;
+  --text-secondary: #6c757d;
+  --visualizer-bg: #e9ecef;
+  --canvas-bg: #ffffff;
+  --waveform-color: #0069d9;
+  --button-bg: #0069d9;
+  --button-hover-bg: #0056b3;
+  --button-text: #ffffff;
+  --theme-toggle-bg: #dee2e6;
+  --theme-toggle-hover: #ced4da;
+  --theme-toggle-text: #212529;
+}
+
+/* Dark theme */
+body.dark-theme {
+  /* Same as default variables, kept for explicitness */
+  --primary-bg: #121212;
+  --secondary-bg: #1e1e1e;
+  --text-color: #ffffff;
+  --text-secondary: #b3b3b3;
+  --visualizer-bg: #1a1a1a;
+  --canvas-bg: #e6ff05;
+  --waveform-color: #ff0000;
+  --button-bg: #007bff;
+  --button-hover-bg: #0056b3;
+  --button-text: #ffffff;
+  --theme-toggle-bg: #333333;
+  --theme-toggle-hover: #444444;
+  --theme-toggle-text: #ffffff;
+}
+
+/* Container for the app */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+}

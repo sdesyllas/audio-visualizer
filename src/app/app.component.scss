@@ -1,0 +1,54 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background-color: var(--secondary-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.visualizer-section {
+  margin-top: 20px;
+  
+  h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  
+  p {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+  }
+}
+
+footer {
+  background-color: var(--secondary-bg);
+  padding: 16px 20px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+}

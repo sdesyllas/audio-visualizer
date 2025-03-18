@@ -1,0 +1,32 @@
+.theme-switcher {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  background-color: var(--theme-toggle-bg, #333);
+  color: var(--theme-toggle-text, white);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: var(--theme-toggle-hover, #444);
+    transform: scale(1.05);
+  }
+  
+  .icon {
+    font-size: 16px;
+    margin-right: 8px;
+  }
+  
+  .text {
+    font-weight: 500;
+  }
+}

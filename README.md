@@ -2,7 +2,8 @@
 
 A real-time microphone audio visualizer built with Angular that displays waveforms from audio input with customizable themes.
 
-![Audio Visualizer Demo](path-to-screenshot.png) <!-- Add a screenshot of your app when available -->
+![image](https://github.com/user-attachments/assets/3293eb9a-b5d3-4c9f-9802-a3c08f9f202b)
+
 
 ## Features
 

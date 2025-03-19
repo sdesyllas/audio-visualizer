@@ -9,6 +9,21 @@
         </option>
       </select>
     </div>
+    
+    <div class="volume-control">
+      <label for="microphoneVolume">Mic Volume:</label>
+      <input 
+        type="range" 
+        id="microphoneVolume" 
+        [(ngModel)]="microphoneVolume" 
+        (input)="onVolumeChange()" 
+        min="0" 
+        max="1" 
+        step="0.01"
+      >
+      <span class="volume-value">{{ (microphoneVolume * 100).toFixed(0) }}%</span>
+    </div>
+    
     <button class="toggle-button" (click)="toggleListening()">
       {{ isListening ? 'Stop' : 'Start' }} Listening
     </button>

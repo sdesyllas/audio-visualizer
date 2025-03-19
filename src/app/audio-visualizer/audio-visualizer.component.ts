@@ -19,15 +19,25 @@ export class AudioVisualizerComponent implements OnInit, OnDestroy {
   
   private canvasContext!: CanvasRenderingContext2D;
   private audioSubscription!: Subscription;
+  private volumeSubscription!: Subscription;
   public isListening = false;
   public visualizationTypes: VisualizationType[] = ['waveform', 'bars', 'circles', 'frequency'];
   public selectedVisualization: VisualizationType = 'waveform';
+  public microphoneVolume = 1.0;
 
   constructor(private audioService: AudioService, @Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.setupCanvas();
+      
+      // Initialize volume from service
+      this.microphoneVolume = this.audioService.getVolume();
+      
+      // Subscribe to volume changes
+      this.volumeSubscription = this.audioService.volume$.subscribe(volume => {
+        this.microphoneVolume = volume;
+      });
     }
   }
 
@@ -37,6 +47,16 @@ export class AudioVisualizerComponent implements OnInit, OnDestroy {
       if (this.audioSubscription) {
         this.audioSubscription.unsubscribe();
       }
+      if (this.volumeSubscription) {
+        this.volumeSubscription.unsubscribe();
+      }
+    }
+  }
+
+  // Update microphone volume when slider changes
+  onVolumeChange(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.audioService.setVolume(this.microphoneVolume);
     }
   }
 

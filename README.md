@@ -110,7 +110,7 @@ ng test
 
 ## License
 
-[MIT](LICENSE) <!-- Add an appropriate license file to your project if you haven't already -->
+This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
 

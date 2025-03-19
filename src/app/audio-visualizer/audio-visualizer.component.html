@@ -1,6 +1,14 @@
 <div class="visualizer-container">
   <canvas #visualizerCanvas class="visualizer-canvas"></canvas>
   <div class="controls">
+    <div class="visualization-selector">
+      <label for="visualizationType">Visualization Type:</label>
+      <select id="visualizationType" [(ngModel)]="selectedVisualization" [disabled]="isListening">
+        <option *ngFor="let type of visualizationTypes" [value]="type">
+          {{ type | titlecase }}
+        </option>
+      </select>
+    </div>
     <button class="toggle-button" (click)="toggleListening()">
       {{ isListening ? 'Stop' : 'Start' }} Listening
     </button>

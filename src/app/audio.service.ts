@@ -9,6 +9,7 @@ export class AudioService {
   private analyser: AnalyserNode | null = null;
   private microphone: MediaStreamAudioSourceNode | null = null;
   private dataArray: Uint8Array = new Uint8Array();
+  private frequencyArray: Uint8Array = new Uint8Array();
   private isInitialized = false;
   
   // Observable to emit audio data to components
@@ -32,6 +33,7 @@ export class AudioService {
       // Create buffer for data
       const bufferLength = this.analyser.frequencyBinCount;
       this.dataArray = new Uint8Array(bufferLength);
+      this.frequencyArray = new Uint8Array(bufferLength);
       
       // Connect microphone to analyzer
       this.microphone = this.audioContext.createMediaStreamSource(stream);
@@ -52,10 +54,13 @@ export class AudioService {
   private collectAudioData(): void {
     if (!this.analyser || !this.isInitialized) return;
     
-    // Get audio data
+    // Get time domain data (waveform)
     this.analyser.getByteTimeDomainData(this.dataArray);
     
-    // Publish the data to subscribers
+    // Get frequency domain data
+    this.analyser.getByteFrequencyData(this.frequencyArray);
+    
+    // Publish the time domain data to subscribers
     this.audioDataSubject.next(new Uint8Array(this.dataArray));
     
     // Continue the loop
@@ -68,5 +73,9 @@ export class AudioService {
       this.audioContext.close();
       this.isInitialized = false;
     }
+  }
+
+  getFrequencyData(): Uint8Array {
+    return new Uint8Array(this.frequencyArray);
   }
 }

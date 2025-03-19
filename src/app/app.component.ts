@@ -11,5 +11,5 @@ import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.componen
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Innovisk Coding GenAI Demo';
+  title = 'Coding GenAI Demo';
 }

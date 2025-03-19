@@ -11,11 +11,12 @@ A real-time microphone audio visualizer built with Angular that displays wavefor
 - Responsive waveform display that adapts to window size
 - Dark/light theme switching with persistent preferences
 - Clean, modern UI built with Angular
+- Server-side rendering (SSR) support for improved SEO and initial load performance
 
 ## Prerequisites
 
-- Node.js (v14 or later recommended)
-- npm (v6 or later)
+- Node.js (v18.18.0 or later recommended)
+- npm (v9 or later)
 - Modern web browser with microphone access and Web Audio API support
 
 ## Installation
@@ -40,6 +41,17 @@ ng serve
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Server-Side Rendering
+
+This project supports Angular's SSR capabilities. To run the app with SSR:
+
+```bash
+npm run build
+npm run serve:ssr:audio-visualizer
+```
+
+Then navigate to `http://localhost:4000/`.
 
 ## How to Use
 
@@ -85,13 +97,16 @@ ng test
 - `src/app/audio-visualizer/` - Component for visualizing audio waveforms
 - `src/app/theme-switcher/` - Component for toggling between light and dark themes
 - `src/app/audio.service.ts` - Service for handling microphone access and audio processing
+- `src/main.server.ts` and `src/server.ts` - Server-side rendering setup
+- `src/app.config.server.ts` - Server-side application configuration
 
 ## Technologies Used
 
 - Angular 19.2.3
-- RxJS for reactive programming
+- RxJS 7.8.0 for reactive programming
 - Web Audio API for audio processing
 - HTML5 Canvas for visualization
+- Express for server-side rendering
 
 ## License
 
@@ -101,3 +116,4 @@ ng test
 
 - Built with [Angular](https://angular.io/)
 - Inspired by audio visualization techniques from the Web Audio API
+- Uses Express.js for server-side functionality
